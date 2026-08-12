@@ -48,7 +48,7 @@ def combine_cbz(file_name : str, parent_path : Path, tmp_dir_list : list[Path]) 
 
     count = 0
     with zipfile.ZipFile(combined_cbz_path, "w", zipfile.ZIP_DEFLATED) as new_cbz:
-        for folder in tmp_dir_list:
+        for folder in reversed(tmp_dir_list):
             files_in_folder = sorted(folder.rglob("*"))
 
             for file_path in files_in_folder:
